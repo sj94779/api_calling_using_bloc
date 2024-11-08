@@ -17,3 +17,4 @@ samples, guidance on mobile development, and a full API reference.
 
 reference:
 Bloc pattern - https://www.youtube.com/playlist?list=PLr7P7lMIUTuvDBbmq66Kwz_OEt_7U9fLH
+Similar to - https://www.youtube.com/watch?v=CjCTNPKhgXc

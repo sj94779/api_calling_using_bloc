@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'app_blocs.dart';
 import 'app_events.dart';
 import 'app_states.dart';
+import 'detailed_screen.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -27,7 +28,7 @@ class HomePage extends StatelessWidget {
   Widget blocBody() {
     return BlocProvider(
       create: (context) => UserBloc(
-        UserRepository(),
+        RepositoryProvider.of<UserRepository>(context),
       )..add(LoadUserEvent()),
       child: BlocBuilder<UserBloc, UserState>(
         builder: (context, state) {
@@ -58,7 +59,10 @@ class HomePage extends StatelessWidget {
                             leading: CircleAvatar(
                               backgroundImage: NetworkImage(
                                   userList[index].avatar.toString()),
-                            ))),
+                            ),
+                        onTap: (){
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=> DetailedScreen(e: userList[index])));
+                        },)),
                   );
                 });
           }

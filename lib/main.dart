@@ -1,4 +1,6 @@
+import 'package:api_calling_using_bloc/repositories.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'homepage.dart';
 
@@ -18,7 +20,10 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomePage(),
+      home: RepositoryProvider(
+
+          create: (context) => UserRepository(),
+          child: const HomePage()),
     );
   }
 }
